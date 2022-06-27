@@ -49,12 +49,14 @@ export class NewEmployeeComponent implements OnInit {
     }
   }
 
-  add(){
+  async add(){
     if(this.validate()){
       if(this.employeeId == null){
-        let result = this.employeeService.add(this.employee)
+        let result = await this.employeeService.add(this.employee)
         if(result != null){
           this.router.navigate(['/adm'])
+        }else{
+          this.msnError = "Service Employee Dowm";
         }
       }else{
         let result  = this.employeeService.update(this.employee,this.employeeId)

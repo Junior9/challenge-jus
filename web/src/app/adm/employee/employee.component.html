@@ -21,7 +21,7 @@
                     </select>
                   </div>
                   <p class="error" *ngIf="msnError != ''">{{msnError}}</p>
-                <a (click)="addAssingn2()" class="btn">Assignments</a>
+                <a (click)="addAssingn()" class="btn">Assignments</a>
                 <a (click)="cancel()" class="btn">Cancel</a>
             </form>
         </div>
@@ -30,7 +30,7 @@
             <div class="logo">
                 <img class="img-logo" src="{{employee.img}}" alt="">
             </div>
-    
+            <p class="error" *ngIf="msnErrorEmployee != ''">{{msnErrorEmployee}}</p>
             <div class="personal-info">
                 <div class="add-performance">
                     <a (click)="showAssignForm()" class="btn mobile">Add employees to participate Mobile</a>
@@ -55,6 +55,10 @@
                         <p>{{employee.name}}  -- {{employee.profesion}} </p>
                       </div>
                     </div>
+                    <p class="error" *ngIf="msnErrorAssing != ''">{{msnErrorAssing}}</p>
+                    <div *ngIf="assignEmployees.length == 0">
+                      <p>{{employee.name}} has no assignment</p>
+                    </div>
                 </div>
                 <div class="performances">
                     <h4>Performances</h4>
@@ -63,10 +67,11 @@
                       <div class="performance"  *ngFor="let performance of performances">
                         <p>{{performance.text}}</p>
                         <small> <span>Created by: {{performance.created_by}}</span> - <span>25/06/2022</span> </small>
+                      </div>
                     </div>
-                    </div>
+                    <p class="error" *ngIf="msnErrorPerformance != ''">{{msnErrorPerformance}}</p>
                     <div *ngIf="performances.length == 0">
-                      <p> {{employee.name}} -  No performance registered </p>
+                      <p>Register the first performance to {{employee.name}} </p>
                     </div>
                 </div>
             </div>

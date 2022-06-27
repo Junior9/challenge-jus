@@ -16,6 +16,9 @@ export class EmployeeComponent implements OnInit {
   id:any;
   employee:any={}
   employees:any=[]
+  msnErrorPerformance:string=""
+  msnErrorEmployee:string=""
+  msnErrorAssing:string=""
   assignEmployees:any=[]
   selectEmployee:any=""
   performances:any=[];
@@ -31,16 +34,17 @@ export class EmployeeComponent implements OnInit {
 
     this.id = this.route.snapshot.paramMap.get("id");
     this.performance.id = this.id;
+
     this.employeeService.getById(this.id).subscribe(data=>{
       this.employee = data;
     },error=>{
-
+      this.msnErrorEmployee = "Service Employee Dowm";
     })   
     
     this.performanceService.getById(this.id).subscribe(data=>{
       this.performances = data;
     },error=>{
-
+      this.msnErrorPerformance = "Service Performance Dowm";
     })
 
     this.employeeService.get().subscribe(data=>{
@@ -51,27 +55,22 @@ export class EmployeeComponent implements OnInit {
         }
       }
     })
-
-    console.log(this.id)
     this.asingnService.getByIdAssign(this.id).subscribe(data=>{
       let dataResp:any = data;
       this.assignEmployees = dataResp.resp;
-
-      console.log(dataResp)
+    },error=>{
+      this.msnErrorAssing = "Service Assignments Dowm";
     })
-
   }
 
   addPerformance(){
     this.msnError = "";
     if(this.performance.text != ""){
-      console.log("OK")
       this.performanceService.add(this.performance).subscribe(data=>{
-       
         this.performances.push(this.performance)
         this.cancel()
       },error=>{
-        console.log("Error")
+        this.msnErrorPerformance = "Service Performance Dowm";
       })
     }else{
       this.msnError = "Campo obligatorio"
@@ -79,129 +78,37 @@ export class EmployeeComponent implements OnInit {
   }
 
 
-  addAssingn2(){
+  addAssingn(){
     this.msnError = "";
-    
     if(this.selectEmployee != ""){
-
       this.employeeService.getById(this.selectEmployee).subscribe(data=>{
         let dataEmployeeSelected:any = data;
-        this.asingnService.getById(this.selectEmployee).subscribe(dataAssign=>{
-          let dataListEmployeeAssing:any = dataAssign
-          let assign = {
-            idEmployee:this.id,
-            name:dataEmployeeSelected.name,
-            profesion:dataEmployeeSelected.profesion,
-            assignName:this.employee.name,
-            assignProfesion:this.employee.profesion
-          }
-          let payload ={
-            idEmployee:dataEmployeeSelected.id,
-            idEmployeeAssign:this.id,
+        let assign = {
+          idEmployee:this.id,
+          name:dataEmployeeSelected.name,
+          profesion:dataEmployeeSelected.profesion,
+          assignName:this.employee.name,
+          assignProfesion:this.employee.profesion
+        }
+        let payload ={
+          idEmployee:dataEmployeeSelected.id,
+          idEmployeeAssign:this.id,
 
-            name:dataEmployeeSelected.name,
-            profesion:dataEmployeeSelected.profesion,
-            assignName:this.employee.name,
-            assignProfesion:this.employee.profesion
-          }
-
-          this.asingnService.add(payload).subscribe(data=>{
-            //this.performances.push(this.performance)
-            console.log("Cancela Add")
-            this.assignEmployees.push(assign)
-            this.cancel()
-          },error=>{
-            
-          })
-
+          name:dataEmployeeSelected.name,
+          profesion:dataEmployeeSelected.profesion,
+          assignName:this.employee.name,
+          assignProfesion:this.employee.profesion
+        }
+        this.asingnService.add(payload).subscribe(data=>{
+          this.assignEmployees.push(assign)
+          this.cancel()
+        },error=>{
+          this.msnErrorAssing = "Service Assignments Dowm";
         })
       })
     }else{
       this.msnError = "Campo obligatorio"
     }
-
-  }
-  
-  addAssign(){
-
-    this.msnError = "";
-
-    if(this.selectEmployee != ""){
-      
-      this.asingnService.getById(this.id).subscribe(data=>{
-        let resp:any = data; 
-
-        this.employeeService.getById(this.selectEmployee).subscribe(data=>{
-
-          let employeeData:any = data;
-          console.log(employeeData)
-
-          let assign = {
-            idEmployee:this.id,
-            name:employeeData.name,
-            profesion:employeeData.profesion,
-            assignName:this.employee.name,
-            assignProfesion:this.employee.profesion
-          }
-
-          let payload ={
-            idEmployee:employeeData.id,
-            idEmployeeAssign:this.id,
-            list:[assign]
-          }
-
-          if(resp.status != false ){
-
-            let assign = {
-              idEmployee:this.id,
-              name:employeeData.name,
-              profesion:employeeData.profesion
-            }
-
-            console.log(resp.resp)
-        
-            resp.resp.list.push(assign)
-    
-            
-            
-          
-            this.asingnService.update(resp.resp).subscribe(data=>{
-              //this.performances.push(this.performance)
-    
-              console.log(data)
-              console.log("Cancela Update")
-
-              this.assignEmployees.push(assign)
-
-              this.cancel()
-            },error=>{
-              
-            })
-    
-          }else{
-            
-            console.log(payload)
-            
-            
-            this.asingnService.add(payload).subscribe(data=>{
-              //this.performances.push(this.performance)
-              console.log("Cancela Add")
-              this.assignEmployees.push(assign)
-              this.cancel()
-            },error=>{
-              
-            })
-          }
-        })
-
-      },error=>{
-        console.log(error)
-      })
-    }else{
-      this.msnError = "Campo obligatorio"
-    }
-
-
   }
 
   showAssignForm(){

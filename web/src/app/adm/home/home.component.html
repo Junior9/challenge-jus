@@ -6,6 +6,10 @@
     </div>
     <div class="body">
       <a [routerLink]="['/adm/add/employee']"  class="btn btn-add">Add employee</a>
+
+      <p class="error" *ngIf="msnError != ''">{{msnError}}</p>
+
+
       <div class="title" *ngIf="employees.length == 0">
         <h2>Register your first employee</h2>
         <a [routerLink]="['/adm/add/employee']"  class="">Here</a>

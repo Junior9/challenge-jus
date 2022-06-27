@@ -20,7 +20,7 @@ export class EmployeeService {
   }
 
   async delete(id:string){
-    await fetch(this.URL+"delete/"+id, {
+    return await fetch(this.URL+"delete/"+id, {
       method: "GET",
     }).then((resp)=>{
       return resp.json()
@@ -36,8 +36,7 @@ export class EmployeeService {
 
 
   async add(employee:Employee){
-
-     await fetch(this.URL+"add", {
+     return await fetch(this.URL+"add", {
         method: "POST",
         body: JSON.stringify(employee)
       }).then((resp)=>{
@@ -47,7 +46,6 @@ export class EmployeeService {
         return json
       },
       (error)=>{
-          console.log(error)
           return null;
       });
   }
