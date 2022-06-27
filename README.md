@@ -80,6 +80,5 @@
 
 * Docker compose 
    ```sh
-    cd server/
     docker compose up
     ```
