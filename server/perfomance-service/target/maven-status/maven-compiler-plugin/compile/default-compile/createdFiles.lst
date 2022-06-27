@@ -1,0 +1,4 @@
+perfomance\models\Performance.class
+perfomance\services\PerformanceService.class
+perfomance\repositories\PerformanceRepository.class
+perfomance\endpoints\Main.class

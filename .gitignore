@@ -1,5 +1,4 @@
 web/node_modules
 web/dist
 server/assignments-service/node_modules
-server/perfomance-service/target
 server/perfomance-service/.mvn
