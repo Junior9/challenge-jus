@@ -77,7 +77,6 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-
   addAssingn(){
     this.msnError = "";
     if(this.selectEmployee != ""){
@@ -111,6 +110,23 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
+  showAssignFormMobile(){
+    var formAssign = document.getElementById('mobile-assignment')  as HTMLElement;
+    formAssign.style.display = "block";
+
+    var form = document.getElementById('mobile-employee')  as HTMLElement;
+    form.style.display = "none"
+  }
+
+  showPerformanceFormMobile(){
+    var form = document.getElementById('mobile-employee')  as HTMLElement;
+    form.style.display = "block"
+
+    var formAssign = document.getElementById('mobile-assignment')  as HTMLElement;
+    formAssign.style.display = "none";
+  }
+
+
   showAssignForm(){
     var formAssign = document.getElementById('form-assign')  as HTMLElement;
     var form = document.getElementById('form')  as HTMLElement;
@@ -134,7 +150,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   cancel(){
-    console.log("Cancel")
     var form = document.getElementById('form')  as HTMLElement;;
     var form_assign = document.getElementById('form-assign')  as HTMLElement;;
     var info = document.getElementById('info')  as HTMLElement;;
@@ -142,6 +157,14 @@ export class EmployeeComponent implements OnInit {
     info.style.width = "100%";
     form.style.display = "none";
     form_assign.style.display = "none";
+  }
+
+  cancelMobile(){
+    var formAssign = document.getElementById('mobile-assignment')  as HTMLElement;
+    var form = document.getElementById('mobile-employee')  as HTMLElement;
+
+    form.style.display = "none";
+    formAssign.style.display = "none";
   }
 
 }

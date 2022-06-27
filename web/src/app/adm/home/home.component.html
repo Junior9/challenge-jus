@@ -39,7 +39,7 @@
               <td>{{employee.created_at | date}}</td>
               <td>{{employee.updated_at | date}}</td>
               <td>
-                  <a  [routerLink]="['/adm/employee/update/',employee.id]"   class="btn btn-info">x</a>
+                  <a  [routerLink]="['/adm/employee/update/',employee.id]"   class="btn btn-info">Edit</a>
               </td>
               <td>
                   <a (click)="delete(employee.id)" class="btn btn-danger">x</a>

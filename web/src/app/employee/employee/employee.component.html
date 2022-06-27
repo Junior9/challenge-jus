@@ -16,16 +16,16 @@
             <tr>
               <th scope="col">Name</th>
               <th scope="col">Profesion</th>
-              <th scope="col">Information</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let employee of employees">
-              <td>{{employee.assignName}}</td>
-              <td>{{employee.assignProfesion}}</td>
               <td>
-                  <a  [routerLink]="['/employee/info/performance/',employee.idEmployeeAssign,id]" class="btn btn-info">x</a>
+                <a  [routerLink]="['/employee/info/performance/',employee.idEmployeeAssign,id]" class="">
+                  {{employee.assignName}}
+                </a>
               </td>
+              <td>{{employee.assignProfesion}}</td>
             </tr>
           </tbody>
         </table>
