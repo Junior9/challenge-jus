@@ -75,3 +75,11 @@
     docker build -f src/main/docker/Dockerfile.jvm -t justo-performance .
     docker run -i --rm -p 9092:9092 -d justo-performance
     ```
+
+### Docker Compose
+
+* Docker compose 
+   ```sh
+    cd server/
+    docker compose up
+    ```
