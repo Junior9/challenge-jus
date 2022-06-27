@@ -39,6 +39,7 @@
     npm install
     ng server
     ```
+* MondoDB : port 27017
     
 # Getting Started - Docker and Docker-Compose
 
@@ -56,7 +57,21 @@
     
 * Start Assignment Service  - NodeJs - Docker
    ```sh
-    cd web
-    docker build -t justo-web .
-    docker run -d -p 4200:80 justo-web
+    cd server/assignments-service
+    docker build -t justo-assignment .
+    docker run -d -p 9093:9093 justo-assignment
+    ```
+
+* Start Employee Service  - Go - Docker
+   ```sh
+    cd server/employee-service
+    docker build -t justo-employee .
+    docker run -d -p 9091:9091 justo-employee
+    ```
+
+* Start Performance Service  - Java - Docker
+   ```sh
+    cd server/performance-service
+    docker build -f src/main/docker/Dockerfile.jvm -t justo-performance .
+    docker run -i --rm -p 9092:9092 -d justo-performance
     ```

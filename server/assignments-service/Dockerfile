@@ -16,4 +16,4 @@ RUN npm install
 COPY . .
 
 EXPOSE 9093
-CMD [ "node", "app.js" ]
+CMD [ "node", "src/app.js" ]
