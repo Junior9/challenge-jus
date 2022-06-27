@@ -1,0 +1,185 @@
+@import "./../../../responsible.scss";
+.main{
+
+    .breadcrumb{
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+   
+    .dash{
+
+        display: flex;
+        @include table{
+            flex-direction: column;
+        }
+        @include mobileGeneral{
+            flex-direction: column;
+        }
+
+        .form{
+            display: none;
+            width: 35%;
+            padding: 1% 3%;
+            margin-top: 10%;
+
+            .btn{
+                width: 100%;
+                background-color: rgb(51, 133, 109);
+                color: white;
+                margin-top: 15px;
+            }
+        }
+        
+        .info{
+            padding: 5% 5%;
+            width: 100%;
+
+            @include table{
+                width: 100%;
+            }
+            @include mobileGeneral{
+                width: 100%;
+            }
+    
+            .logo{
+                width: 100%;
+                text-align: center;
+                .img-logo{
+                    margin: auto;
+                    border-radius: 50%;
+                    background-color: black;
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+    
+            .personal-info{
+                text-align: center;
+                position: relative;
+                display: flex;
+
+                @include table{
+                    flex-direction: column;
+                }
+                @include mobileGeneral{
+                    flex-direction: column;
+                }
+
+                .desktop{
+                    @include table{
+                        display: none;
+                    }
+                    @include mobileGeneral{
+                        display: none;
+                    }
+                }
+
+                .mobile{
+                    display: none;
+                    @include table{
+                        display: block;
+                    }
+                    @include mobileGeneral{
+                        display: block;
+                    }
+                }
+
+                .add-performance{
+                    width: 48%;
+                    margin: 1%;
+                    @include table{
+                        width: 98%;
+                    }
+                    @include mobileGeneral{
+                        width: 98%;
+                    }
+    
+    
+                    background-color: rgb(51, 133, 109);
+                    margin-right: 20px;
+                    a{
+                        color: white;
+                    }
+                }
+    
+                .add{
+                    width: 48%;
+                    margin: 1%;
+                    background-color: rgb(51, 133, 109);
+                    margin-right: 20px;
+                    @include table{
+                        width: 98%;
+                    }
+                    @include mobileGeneral{
+                        width: 98%;
+                    }
+                    a{
+                        color: white;
+                    }
+                }
+            }
+
+            .text{
+                text-align: center;
+                font-weight: bold;
+            }
+    
+
+
+            
+            .view{
+                width: 100%;
+                display: flex;
+
+                @include table{
+                    flex-direction: column;
+                }
+                @include mobileGeneral{
+                    flex-direction: column;
+                }
+
+                .employees{
+                    text-align: center;
+                    width: 48%;
+                    margin: 1%;
+                    @include table{
+                        width: 98%;
+                    }
+                    @include mobileGeneral{
+                        width: 98%;
+                    }
+                }
+
+                
+                .performances{
+                    text-align: center;
+                    width: 48%;
+                    margin: 1%;
+                    @include table{
+                        width: 98%;
+                    }
+                    @include mobileGeneral{
+                        width: 98%;
+                    }
+        
+                    .performance{
+                        width: 50%;
+                        margin: auto;
+                        border: 1px solid rgb(51, 133, 109);
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+
+            
+
+
+
+
+        }
+
+    }
+
+
+}

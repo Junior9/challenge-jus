@@ -1,0 +1,118 @@
+<app-header></app-header>
+
+<div class="main">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/adm']">Home</a></li>
+          <li class="breadcrumb-item">Employees</li>
+          <li class="breadcrumb-item active" aria-current="page">{{employee.name}}</li>
+        </ol>
+    </nav>
+
+    <div class="dash">
+        <div class="form" id="form-assign">
+            <h3>New Assign</h3>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select a employee</label>
+                    <select class="form-control" [(ngModel)]="selectEmployee" name="selectEmployee" id="exampleFormControlSelect1">
+                      <option></option>
+                      <option *ngFor="let employee of employees" value="{{employee.id}}">{{employee.name}} - {{employee.profesion}} </option>
+                    </select>
+                  </div>
+                  <p class="error" *ngIf="msnError != ''">{{msnError}}</p>
+                <a (click)="addAssingn2()" class="btn">Assignments</a>
+                <a (click)="cancel()" class="btn">Cancel</a>
+            </form>
+        </div>
+
+        <div class="info" id="info">
+            <div class="logo">
+                <img class="img-logo" src="{{employee.img}}" alt="">
+            </div>
+    
+            <div class="personal-info">
+                <div class="add-performance">
+                    <a (click)="showAssignForm()" class="btn mobile">Add employees to participate Mobile</a>
+                    <a (click)="showAssignForm()" class="btn desktop">Add employees to participate</a>
+                </div>
+                <div class="add">
+                    <a (click)="showPerformanceForm()" class="btn mobile">Add performance Mobile</a>
+                    <a (click)="showPerformanceForm()" class="btn desktop">Add performance</a>
+                </div>
+            </div>
+
+            <div class="text">
+                <p>{{employee.name}}</p>
+                <p>{{employee.profesion}}</p>
+            </div>
+
+            <div class="view">
+                <div class="employees">
+                    <h4>Employees to participate</h4>
+                    <div *ngIf="assignEmployees.length > 0">
+                      <div class="performance"  *ngFor="let employee of assignEmployees">
+                        <p>{{employee.name}}  -- {{employee.profesion}} </p>
+                      </div>
+                    </div>
+                </div>
+                <div class="performances">
+                    <h4>Performances</h4>
+
+                    <div *ngIf="performances.length > 0">
+                      <div class="performance"  *ngFor="let performance of performances">
+                        <p>{{performance.text}}</p>
+                        <small> <span>Created by: {{performance.created_by}}</span> - <span>25/06/2022</span> </small>
+                    </div>
+                    </div>
+                    <div *ngIf="performances.length == 0">
+                      <p> {{employee.name}} -  No performance registered </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form" id="form">
+            <h3>New performance</h3>
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">{{employee.name}} performance</label>
+                    <textarea [(ngModel)]="performance.text" name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <p class="error" *ngIf="msnError != ''">{{msnError}}</p>
+                </div>
+                <a (click)="addPerformance()" class="btn">Create performance</a>
+                <a (click)="cancel()" class="btn">Cancel</a>
+              </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

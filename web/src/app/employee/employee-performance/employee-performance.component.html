@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="main">
+
+    
+
+    <div class="body">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink]="['/employee']">Home</a></li>
+            </ol>
+          </nav>
+
+        <div class="employee-card-info">
+            <div class="logo">
+                <img src="{{employee.img}}" alt="">
+            </div>
+            <div class="info">
+                <p>{{employee.name}}</p>
+                <p>{{employee.profesion}}</p>                
+            </div>
+        </div>
+
+        <div class="employee-performances">
+            <div class="performance" *ngFor="let performance of performances">
+                <p>{{performance.text}} </p>
+                <small>Autor: {{performance.created_by}}</small>
+            </div>
+
+        </div>
+
+        <div class="form">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Performance</label>
+                    <textarea [(ngModel)]="performance.text" name="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <p class="error" *ngIf="msnError!=''" >{{msnError}}</p>
+                </div>
+
+                <a type="submit" (click)="add()" class="btn">Send</a>
+            </form>
+        </div>
+    
+    </div>
+
+</div>

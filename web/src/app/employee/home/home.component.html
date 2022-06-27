@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <div class="title">
+        <h3>Select a Employee</h3>
+    </div>
+
+    <div class="body">
+        <div class="cards" >
+
+            <div *ngIf="employees.length > 0" class="cards">
+                <a  *ngFor="let employee of employees" [routerLink]="['/employee/performance',employee.id]"  class="card-employee">
+                    <div class="logo">
+                        <img src="{{employee.img}}" alt="">
+                    </div> 
+                    <div class="info">
+                        <p>{{employee.name}}</p>
+                        <p>{{employee.profesion}}</p>
+                    </div>
+                </a>
+            </div>
+
+            <div *ngIf="employees.length == 0" class="text">
+                <h5>Register your first employee</h5>
+                <a [routerLink]="['/adm/add/employee']"  class="">Here</a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

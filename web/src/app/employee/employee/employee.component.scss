@@ -1,0 +1,25 @@
+.main{
+
+    .title{
+        text-align: center;
+        margin-top: 5%;
+
+        span{
+            color:rgb(51, 133, 109) ;
+        }
+    }
+
+    .breadcrumb{
+        margin-left: 20px;
+    }
+
+    .body{
+        padding: 2% 5%;        
+        .logo{
+            width: 100%;
+            img{
+                width: 40px;
+            }
+        }
+    }
+}

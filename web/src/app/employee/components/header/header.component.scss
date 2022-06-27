@@ -1,0 +1,17 @@
+.navbar{
+    color: rgb(51, 133, 109);
+    a{
+        color:rgb(51, 133, 109)
+    }
+    span{
+        width: 70%;
+        text-align: center;
+    }
+    .logout{
+        float: right;
+        a{
+            background-color: rgb(51, 133, 109);
+            color: white;
+        }
+    }
+}

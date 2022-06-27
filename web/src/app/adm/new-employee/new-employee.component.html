@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="adm">Home</a></li>
+        </ol>
+    </nav>
+
+    <div class="title">
+        <h1>New Employees</h1>
+    </div>
+
+    <div class="form">
+        <form>
+            <div class="logo">
+                <img class="img-logo" src="{{employee.img}}" alt="">
+            </div>
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input [(ngModel)]="employee.name"  name="name" type="text" class="form-control" id="name" >
+              <p class="error" *ngIf="msnError != ''">{{msnError}}</p>
+            </div>
+            <div class="form-group">
+              <label for="profession">Profesion</label>
+              <input  [(ngModel)]="employee.profesion" name="profesion" type="text" class="form-control" id="profession">
+              <p class="error" *ngIf="msnError != ''">{{msnError}}</p>
+            </div>
+            <label for="logoImg" style="margin-top: 15px;" class="logo-file">
+                <span class="btn">Logo</span>   
+                <input type="file" class="form-control" accept=".png, .jpg, .jpeg" (change)="CreateBase64String($event)" id="logoImg">
+            </label>
+            <a (click)="add()" class="btn">{{btnMsn}}</a>
+        </form>
+    </div>
+</div>

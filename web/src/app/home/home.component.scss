@@ -1,0 +1,59 @@
+@import "./../../responsible.scss";
+
+.main{
+    width: 100%;
+    height: 100vh;
+    background-color: aliceblue;
+    color: rgb(51, 133, 109);
+    .body{
+        width: 100%;
+        h1{
+            text-align: center;
+            padding-top: 35px;
+        }
+        .line{
+            width: 100%;
+            display: flex;
+            padding-top: 10%;
+   
+            @include table{
+                flex-direction: column;
+            }
+            @include mobileGeneral{
+                flex-direction: column;
+            }
+            .btn-big{
+                width: 31%;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                background-color:rgb(51, 133, 109);
+                color: white;
+                height: 50vh;
+                margin: auto;
+                margin: 1%;
+                @include table{
+                    width: 96%;
+                    margin: 2%;
+                }
+                @include mobileGeneral{
+                    width: 96%;
+                    margin: 2%;
+                }
+                img{
+                    width: 50%;
+                    margin: auto;
+                    @include table{
+                        width: 30%;
+                    }
+                }
+                a{
+                    color: white;
+                    text-decoration: none;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}

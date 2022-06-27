@@ -1,0 +1,45 @@
+.main{
+
+    .body{
+
+        .breadcrumb{
+            margin-left: 20px;
+        }
+        .employee-card-info{
+            display: flex;
+            border: solid 1px black;
+            margin: 5% 10%;
+            .logo{
+                width:30%;
+                text-align: center;
+                img{
+                    width: 100px;
+                }
+            }
+
+            .info{
+                width: 70%;
+            }
+        }
+
+        .employee-performances{
+            width: 100%;
+
+            .performance{
+                border: solid 1px black;
+                text-align: center;
+                margin: 2% 10%;
+
+            }
+        }
+
+        .form{
+            margin: 2% 15%;
+            .btn{
+                width: 100%;
+                background-color:rgb(51, 133, 109);
+                color:white;
+            }
+        }
+    }
+}

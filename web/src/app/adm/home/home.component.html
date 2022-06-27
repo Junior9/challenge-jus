@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="main">
+    <div class="title">
+        <h1>Employees</h1>
+    </div>
+    <div class="body">
+      <a [routerLink]="['/adm/add/employee']"  class="btn btn-add">Add employee</a>
+      <div class="title" *ngIf="employees.length == 0">
+        <h2>Register your first employee</h2>
+        <a [routerLink]="['/adm/add/employee']"  class="">Here</a>
+      </div>
+      <div class="table-responsive" *ngIf="employees.length > 0">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Profesion</th>
+              <th scope="col">Create date</th>
+              <th scope="col">Update date</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees">
+              <th scope="row">
+                <div class="logo">
+                  <img class="img-logo" src="{{employee.img}}" alt="">
+                </div>    
+              </th>
+              <td><a [routerLink]="['/adm/employee/',employee.id]">{{employee.name}}</a></td>
+              <td>{{employee.profesion}}</td>
+              <td>{{employee.created_at | date}}</td>
+              <td>{{employee.updated_at | date}}</td>
+              <td>
+                  <a  [routerLink]="['/adm/employee/update/',employee.id]"   class="btn btn-info">x</a>
+              </td>
+              <td>
+                  <a (click)="delete(employee.id)" class="btn btn-danger">x</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>

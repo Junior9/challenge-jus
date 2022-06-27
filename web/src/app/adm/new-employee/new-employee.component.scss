@@ -1,0 +1,39 @@
+.main{
+    .title{
+        text-align: center;
+        color:rgb(51, 133, 109);
+        padding: 2%;
+    }
+
+    .breadcrumb{
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    .form{
+        padding: 2% 15%;
+        .logo{
+            width: 100%;
+            text-align: center;
+            .img-logo{
+                margin: auto;
+                border-radius: 50%;
+                background-color: black;
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .logo-file{
+            width: 100%;
+        }
+
+        .btn{
+            width: 100%;
+            margin-top: 15px;
+            background-color: rgb(51, 133, 109);
+            color: white;
+            font-weight: bold;
+        }
+    }
+}
