@@ -44,7 +44,7 @@ app.set(express.static(path.join(__dirname,'public')));
 
 
 mongoose
-	.connect("mongodb://localhost:27017/justo-db", { useNewUrlParser: true })
+	.connect("mongodb://mongo:27017/justo-db", { useNewUrlParser: true })
 	.then(() => {
     //start serve
     app.listen(9093, () =>{

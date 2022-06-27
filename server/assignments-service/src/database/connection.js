@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1:27017/justo-db';
+var mongoDB = 'mongodb://mongo:27017/justo-db';
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 
 

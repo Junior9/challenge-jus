@@ -1,27 +1,37 @@
 version: "3.9"
 services:
+
   web:
+    restart: always
     build: web/
     ports:
-      - "4200:4200" 
+      - "4200:80"
 
   service-assignment:
+    restart: always
     build: server/assignments-service/
     ports:
       - "9093:9093"
     links:
-      - bd
+      - mongo
 
   service-employee:
+    restart: always
     build: server/employee-service/
     ports:
       - "9091:9091"
     links:
-      - bd
+      - mongo
+    
+  service-performance:
+    build: server/perfomance-service/
+    ports:
+      - "9092:9092"
+    links:
+      - mongo  
 
-
-      
-  bd:
+  mongo:
+    container_name: mongo
     image: mongo:5.0 
     ports:
       - "27017:27017"

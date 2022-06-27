@@ -2,7 +2,6 @@ package database
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"time"
 
@@ -12,10 +11,9 @@ import (
 
 func GetConnection(collection string) *mongo.Collection {
 
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://localhost:27017"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://mongo:27017"))
 
 	if err != nil {
-		fmt.Println("Error 1")
 		log.Fatal(err)
 	}
 
@@ -24,7 +22,6 @@ func GetConnection(collection string) *mongo.Collection {
 
 	err = client.Connect(ctx)
 	if err != nil {
-		fmt.Println("Error 3")
 		log.Fatal(err)
 	}
 	//defer client.Disconnect(ctx)

@@ -29,7 +29,7 @@
               <p class="error" *ngIf="msnError != ''">{{msnError}}</p>
             </div>
             <label for="logoImg" style="margin-top: 15px;" class="logo-file">
-                <span class="btn">Logo</span>   
+                <span class="btn">Photo</span>   
                 <input type="file" class="form-control" accept=".png, .jpg, .jpeg" (change)="CreateBase64String($event)" id="logoImg">
             </label>
             <a (click)="add()" class="btn">{{btnMsn}}</a>
