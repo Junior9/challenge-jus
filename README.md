@@ -13,12 +13,14 @@
 1. "node installed in your compute"
 1. "angular cli installed in your compute"
 
-## Docker Compose
+### Docker Compose
 
 * Docker compose ( Recommendable )
    ```sh
     docker compose up
     ```
+
+###
 
 * Start Employee Service  - Go
   ```sh
